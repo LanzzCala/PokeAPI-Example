@@ -18,8 +18,8 @@ pokemon_name = "machoke"
 pokemon_info = get_pokemon_info(pokemon_name)
 
 if pokemon_info:
-    print(f"{pokemon_info['name']}")
-    print(f"{pokemon_info['id']}")
-    print(f"{pokemon_info['base_experience']}")
+    print(f"Name: {pokemon_info['name']}")
+    print(f"ID: {pokemon_info['id']}")
+    print(f"Base Experience: {pokemon_info['base_experience']}")
     
     
