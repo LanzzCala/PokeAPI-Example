@@ -10,9 +10,16 @@ def get_pokemon_info(name):
     if response.status_code == 200:
         print("Data retrieved!")
         pokemon_data = response.json()
-        print(pokemon_data)
+        return pokemon_data
     else:
         print(f"Failed to retireve data {response.status_code}")
 
 pokemon_name = "machoke"
-get_pokemon_info(pokemon_name)
+pokemon_info = get_pokemon_info(pokemon_name)
+
+if pokemon_info:
+    print(f"{pokemon_info['name']}")
+    print(f"{pokemon_info['id']}")
+    print(f"{pokemon_info['base_experience']}")
+    
+    
