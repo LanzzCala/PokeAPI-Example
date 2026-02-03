@@ -11,8 +11,13 @@ def get_pokemon_info(name):
         print("Data retrieved!")
         pokemon_data = response.json()
         return pokemon_data
+    elif response.status_code == 404:
+        print(f"Failed to retireve data {response.status_code}. Try again")
+        return False
     else:
-        print(f"Failed to retireve data {response.status_code}")
+        print (f"Error. An unexpected API error occured. {response.status_code}")
+        return False
+
 
 pokemon_name = input("What pokemon would you like information on? ")
 
@@ -22,5 +27,6 @@ if pokemon_info:
     print(f"Name: {pokemon_info['name']}")
     print(f"ID: {pokemon_info['id']}")
     print(f"Base Experience: {pokemon_info['base_experience']}")
+
     
     
