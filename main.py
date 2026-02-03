@@ -14,7 +14,8 @@ def get_pokemon_info(name):
     else:
         print(f"Failed to retireve data {response.status_code}")
 
-pokemon_name = "machoke"
+pokemon_name = input("What pokemon would you like information on? ")
+
 pokemon_info = get_pokemon_info(pokemon_name)
 
 if pokemon_info:
