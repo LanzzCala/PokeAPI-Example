@@ -12,7 +12,7 @@ def get_pokemon_info(name):
         pokemon_data = response.json()
         return pokemon_data
     elif response.status_code == 404:
-        print(f"Failed to retireve data {response.status_code}. Try again")
+        print(f"Failed to retrieve data. Code: {response.status_code}. Try again")
         return False
     else:
         print (f"Error. An unexpected API error occured. {response.status_code}")
