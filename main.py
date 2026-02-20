@@ -24,11 +24,15 @@ start_pokemon_search = input("Welcome to the PokeApi Search engine. Would you li
 "search for a pokemon's information? (Y/N) ")
 
 if start_pokemon_search == 'Y' or start_pokemon_search == 'y':
-    pokemon_name = input("What pokemon would you like information on? ")
+    pokemon_name = input("What pokemon would you like information on? If you need " \
+    "some suggestions, type help. ").lower()
 
 elif start_pokemon_search == 'N' or start_pokemon_search == 'n':
     print("No problem. Have a good day.")
     sys.exit()
+
+if pokemon_name == 'help':
+    print("Here are some suggestions:  ")
     
 pokemon_info = get_pokemon_info(pokemon_name)
 
