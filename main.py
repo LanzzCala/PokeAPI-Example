@@ -4,7 +4,7 @@ import sys
 base_url = "https://pokeapi.co/api/v2/"
 
 def get_pokemon_info(name):
-    url=f"{base_url}/pokemon/{pokemon_name}"
+    url=f"{base_url}/pokemon/{pokemon_search}"
     response = requests.get(url)
     #print(response)
 
@@ -19,22 +19,22 @@ def get_pokemon_info(name):
         print (f"Error. An unexpected API error occured. {response.status_code}")
         return False
 
+def pokemon_search():
+    start_pokemon_search = input("Welcome to the PokeApi Search engine. Would you like to " \
+    "search for a pokemon's information? (Y/N) ")
 
-start_pokemon_search = input("Welcome to the PokeApi Search engine. Would you like to " \
-"search for a pokemon's information? (Y/N) ")
+    if start_pokemon_search == 'Y' or start_pokemon_search == 'y':
+        pokemon_name = input("What pokemon would you like information on? If you need " \
+        "some suggestions, type help. ").lower()
+        return pokemon_name
 
-if start_pokemon_search == 'Y' or start_pokemon_search == 'y':
-    pokemon_name = input("What pokemon would you like information on? If you need " \
-    "some suggestions, type help. ").lower()
+    elif start_pokemon_search == 'N' or start_pokemon_search == 'n':
+        print("No problem. Have a good day.")
+        sys.exit()
 
-elif start_pokemon_search == 'N' or start_pokemon_search == 'n':
-    print("No problem. Have a good day.")
-    sys.exit()
 
-if pokemon_name == 'help':
-    print("Here are some suggestions:  ")
     
-pokemon_info = get_pokemon_info(pokemon_name)
+pokemon_info = get_pokemon_info(pokemon_search())
 
 if pokemon_info:
     print(f"Name: {pokemon_info['name']}")
