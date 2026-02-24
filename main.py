@@ -3,8 +3,8 @@ import sys
 
 base_url = "https://pokeapi.co/api/v2/"
 
-def get_pokemon_info(name):
-    url=f"{base_url}/pokemon/{pokemon_search}"
+def get_pokemon_info():
+    url=f"{base_url}/pokemon/{pokemon_search()}"
     response = requests.get(url)
     #print(response)
 
@@ -32,14 +32,21 @@ def pokemon_search():
         print("No problem. Have a good day.")
         sys.exit()
 
+def random_pokemon():
+    url=f"{base_url}/pokemon/{pokemon_search}"
+    response = requests.get(url)
 
-    
-pokemon_info = get_pokemon_info(pokemon_search())
+get_pokemon_info()
+pokemon_choice = get_pokemon_info() 
+# print(get_pokemon_info())
 
-if pokemon_info:
-    print(f"Name: {pokemon_info['name']}")
-    print(f"ID: {pokemon_info['id']}")
-    print(f"Base Experience: {pokemon_info['base_experience']}")
+if get_pokemon_info:
+    print(f"Name: {pokemon_choice['name']}")
+    print(f"ID: {pokemon_choice['id']}")
+    print(f"Base Experience: {pokemon_choice['base_experience']}")
+
+
+
 
     
     
